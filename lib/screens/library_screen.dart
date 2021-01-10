@@ -18,6 +18,7 @@ class LibraryScreen extends StatelessWidget {
     return Scaffold(
       body: CustomAppBar(
         title: 'ライブラリ',
+        rightActionOnTap: () {},
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 14.0,

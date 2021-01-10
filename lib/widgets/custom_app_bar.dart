@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget {
   final String title;
   final Widget body;
+  final Function rightActionOnTap;
 
   CustomAppBar({
     this.title,
     this.body,
+    this.rightActionOnTap,
   });
 
   @override
@@ -17,7 +19,21 @@ class CustomAppBar extends StatelessWidget {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
             CupertinoSliverNavigationBar(
-              largeTitle: Text(title),
+              largeTitle: Text(
+                title,
+              ),
+              trailing: GestureDetector(
+                onTap: rightActionOnTap,
+                child: Container(
+                  child: Text(
+                    '編集',
+                    style: TextStyle(
+                      color: Colors.redAccent.shade200,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ];
         },
